@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guessing Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <!-- <h1>🎯 Guessing Game</h1> -->
+      <h1>🧠 Guessing Game</h1>
+      <p>Join friends in a fun live guessing game!🎯</p>
+    </header>
+
+    <main class="main-content">
+      <div class="form-container">
+        <div class="form-group">
+          <label for="playerName">Enter your name:</label>
+          <input type="text" id="playerName" placeholder="Your name" maxlength="20" required>
+        </div>
+
+        <div class="button-group">
+          <button id="createSession" class="btn btn-primary">Create Game Session</button>
+          <button id="joinSession" class="btn btn-secondary">Join Game Session</button>
+        </div>
+
+        <div id="joinForm" class="join-form hidden">
+          <div class="form-group">
+            <label for="sessionId">Session ID:</label>
+            <input type="text" id="sessionId" placeholder="Enter session ID" maxlength="6" required>
+          </div>
+          <button id="joinGame" class="btn btn-primary">Join Game</button>
+          <button id="cancelJoin" class="btn btn-secondary">Cancel</button>
+        </div>
+      </div>
+
+      <div id="errorMessage" class="error-message hidden"></div>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
