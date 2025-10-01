@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guessing Game - Room</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <header class="game-header">
+      <div class="session-info">
+        <h2>🎯 Session: <span id="sessionDisplay">---</span></h2>
+        <p>Players: <span id="playerCount">0</span></p>
+      </div>
+      <button id="leaveGame" class="btn btn-danger">Leave Game</button>
+    </header>
+
+    <div class="game-content">
+      <div class="sidebar">
+        <div class="players-section">
+          <h3>Players</h3>
+          <div id="playersList" class="players-list"></div>
+        </div>
+
+        <div class="scoreboard-section">
+          <h3>Scoreboard</h3>
+          <div id="scoreboard" class="scoreboard"></div>
+        </div>
+      </div>
+
+      <div class="chat-section">
+        <div id="messages" class="messages"></div>
+        
+        <div id="gameControls" class="game-controls hidden">
+          <div class="question-form">
+            <h3>Create Question (Game Master)</h3>
+            <div class="form-group">
+              <label for="questionInput">Question:</label>
+              <input type="text" id="questionInput" placeholder="Enter your question" maxlength="200" required>
+            </div>
+            <div class="form-group">
+              <label for="answerInput">Answer:</label>
+              <input type="text" id="answerInput" placeholder="Enter the answer" maxlength="100" required>
+            </div>
+            <button id="startGame" class="btn btn-primary">Start Game</button>
+          </div>
+        </div>
+
+        <div id="guessControls" class="guess-controls hidden">
+          <div class="guess-info">
+            <p id="questionDisplay"></p>
+            <p id="attemptsDisplay">Attempts left: 3</p>
+            <p id="timerDisplay">Time left: 60s</p>
+          </div>
+          <div class="guess-form">
+            <input type="text" id="guessInput" placeholder="Enter your guess" maxlength="100">
+            <button id="submitGuess" class="btn btn-primary">Submit Guess</button>
+          </div>
+        </div>
+
+        <div class="chat-input">
+          <input type="text" id="chatInput" placeholder="Type a message..." maxlength="200">
+          <button id="sendMessage" class="btn btn-secondary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
